@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D8C3CDF8-2211-4104-97F6-344B371F4E71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0D944AEE-C2AD-4A61-BF51-22A4B3051ECC}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LazarusHospital", "src\LazarusHospital\LazarusHospital.xproj", "{6A3676D5-F983-4977-A446-C728C53FF628}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LazarusHospital.UnitTests", "src\LazarusHospital.UnitTests\LazarusHospital.UnitTests.xproj", "{FA91635F-4C26-4599-BDAB-4A346F508202}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A3676D5-F983-4977-A446-C728C53FF628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A3676D5-F983-4977-A446-C728C53FF628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A3676D5-F983-4977-A446-C728C53FF628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A3676D5-F983-4977-A446-C728C53FF628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA91635F-4C26-4599-BDAB-4A346F508202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA91635F-4C26-4599-BDAB-4A346F508202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA91635F-4C26-4599-BDAB-4A346F508202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA91635F-4C26-4599-BDAB-4A346F508202}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6A3676D5-F983-4977-A446-C728C53FF628} = {D8C3CDF8-2211-4104-97F6-344B371F4E71}
+		{FA91635F-4C26-4599-BDAB-4A346F508202} = {D8C3CDF8-2211-4104-97F6-344B371F4E71}
+	EndGlobalSection
+EndGlobal
