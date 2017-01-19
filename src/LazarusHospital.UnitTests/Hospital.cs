@@ -6,38 +6,35 @@ namespace LazarusHospital.UnitTests
 {
     public class Hospital
     {
+        private List<TreatmentRoom> _treatmentRooms = new List<TreatmentRoom>();
+        private List<Doctor> _doctors = new List<Doctor>();
+        private List<Patient> _registeredPatients = new List<Patient>();
+        private List<ConsultationRecord> _records = new List<ConsultationRecord>();
+
         public Hospital()
         {
             AddDoctor(new Doctor("John", new Role[] { new Oncologist() }));
             AddDoctor(new Doctor("Anna", new Role[] { new GeneralPractitioner() } ));
             AddDoctor(new Doctor("Peter", new Role[] { new Oncologist(), new GeneralPractitioner() } ));
-
-            var elekta = new AdvancedTreatmentMachine("Elekta");
-            var varian = new AdvancedTreatmentMachine("Varian");
-            var mm50 = new SimpleTreatmentMachine("MM50");
-            var none = new NullTreatmentMachine();
-
-            AddRoom(new TreatmentRoom("One", elekta));
-            AddRoom(new TreatmentRoom("Two", varian));
-            AddRoom(new TreatmentRoom("Three", mm50));
-            AddRoom(new TreatmentRoom("Four", none));
-            AddRoom(new TreatmentRoom("Five", none));
-            
+            AddRoom(new TreatmentRoom("One", new AdvancedTreatmentMachine("Elekta")));
+            AddRoom(new TreatmentRoom("Two", new AdvancedTreatmentMachine("Varian")));
+            AddRoom(new TreatmentRoom("Three", new SimpleTreatmentMachine("MM50")));
+            AddRoom(new TreatmentRoom("Four", new NullTreatmentMachine()));
+            AddRoom(new TreatmentRoom("Five", new NullTreatmentMachine()));
         }
 
         private void AddDoctor(Doctor doctor)
         {
-
+            _doctors.Add(doctor);
         }
 
-        private void AddRoom(TreatmentRoom room)
+        private void AddRoom(TreatmentRoom treatmentRoom)
         {
-
+            _treatmentRooms.Add(treatmentRoom);
         }
 
         public void RegisterPatient(Patient patient)
         {
-
         }
 
         public IEnumerable<Patient> ListRegisteredPatients()
@@ -114,7 +111,7 @@ namespace LazarusHospital.UnitTests
 
     public class TreatmentRoom : Resource, ICanTreat
     {
-        public TreatmentMachine TreatmentMachine { get; set; }
+        private TreatmentMachine TreatmentMachine { get; set; }
         public TreatmentRoom(string name, TreatmentMachine treatmentMachine)
             : base(name)
         {
@@ -178,7 +175,7 @@ namespace LazarusHospital.UnitTests
 
     public class Patient : Resource
     {
-        public Condition Condition { get; set; }
+        public Condition Condition { get; private set; }
 
         public Patient(string name, Condition condition)
             : base(name)
@@ -226,7 +223,7 @@ namespace LazarusHospital.UnitTests
 
     public class Cancer : Condition
     {
-        public Topology Topology { get; set; }
+        private Topology Topology { get; set; }
         public Cancer(Topology topology)
         {
             Topology = topology;
