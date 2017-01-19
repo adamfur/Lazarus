@@ -1,12 +1,53 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LazarusHospital.UnitTests
 {
     public class Hospital
     {
+        public Hospital()
+        {
+            AddDoctor(new Doctor("John", new Role[] { new Oncologist() }));
+            AddDoctor(new Doctor("Anna", new Role[] { new GeneralPractitioner() } ));
+            AddDoctor(new Doctor("Peter", new Role[] { new Oncologist(), new GeneralPractitioner() } ));
+
+            var elekta = new AdvancedTreatmentMachine("Elekta");
+            var varian = new AdvancedTreatmentMachine("Varian");
+            var mm50 = new SimpleTreatmentMachine("MM50");
+            var none = new NullTreatmentMachine();
+
+            AddRoom(new TreatmentRoom("One", elekta));
+            AddRoom(new TreatmentRoom("Two", varian));
+            AddRoom(new TreatmentRoom("Three", mm50));
+            AddRoom(new TreatmentRoom("Four", none));
+            AddRoom(new TreatmentRoom("Five", none));
+            
+        }
+
+        private void AddDoctor(Doctor doctor)
+        {
+
+        }
+
+        private void AddRoom(TreatmentRoom room)
+        {
+
+        }
+
         public void RegisterPatient(Patient patient)
         {
 
+        }
+
+        public IEnumerable<Patient> ListRegisteredPatients()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ConsultationRecord> ListScheduledConsultations()
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -34,36 +75,37 @@ namespace LazarusHospital.UnitTests
         bool CanTreat(Patient patient);
     }
 
-    public abstract class Doctor : Resource, ICanTreat
+    public class Doctor : Resource, ICanTreat
     {
-        protected Doctor(string name)
+        private Role[] Roles { get; set; }
+
+        public Doctor(string name, Role[] roles)
             : base(name)
         {
+            Roles = roles;
         }
 
+        public bool CanTreat(Patient patient)
+        {
+            return Roles.Any(r => r.CanTreat(patient));
+        }
+    }
+
+    public abstract class Role : ICanTreat
+    {
         public abstract bool CanTreat(Patient patient);
     }
 
-    public class Oncologist : Doctor
+    public class Oncologist : Role
     {
-        public Oncologist(string name)
-            : base(name)
-        {
-        }
-
         public override bool CanTreat(Patient patient)
         {
             return patient.Condition.Visit(this);
         }        
     }
 
-    public class GeneralPractitioner : Doctor
+    public class GeneralPractitioner : Role
     {
-        public GeneralPractitioner(string name)
-            : base(name)
-        {
-        }
-
         public override bool CanTreat(Patient patient)
         {
             return patient.Condition.Visit(this);
@@ -101,6 +143,11 @@ namespace LazarusHospital.UnitTests
             : base(name)
         {
         }
+
+        public override bool CanTreat(Patient patient)
+        {
+            return patient.Condition.Visit(this);
+        }
     }
 
     public class SimpleTreatmentMachine : TreatmentMachine
@@ -109,7 +156,25 @@ namespace LazarusHospital.UnitTests
             : base(name)
         {
         }
+
+        public override bool CanTreat(Patient patient)
+        {
+            return patient.Condition.Visit(this);
+        }
     }
+
+    public class NullTreatmentMachine : TreatmentMachine
+    {
+        public NullTreatmentMachine()
+            : base(null)
+        {
+        }
+
+        public override bool CanTreat(Patient patient)
+        {
+            return patient.Condition.Visit(this);
+        }
+    }    
 
     public class Patient : Resource
     {
@@ -126,10 +191,28 @@ namespace LazarusHospital.UnitTests
     {
         public abstract bool Visit(Oncologist doctor);
         public abstract bool Visit(GeneralPractitioner doctor);
+        public abstract bool Visit(AdvancedTreatmentMachine treatmentMachine);
+        public abstract bool Visit(SimpleTreatmentMachine treatmentMachine);
+        public abstract bool Visit(NullTreatmentMachine treatmentMachine);
     }
 
     public class Flu : Condition
     {
+        public override bool Visit(AdvancedTreatmentMachine treatmentMachine)
+        {
+            return false;
+        }
+
+        public override bool Visit(NullTreatmentMachine treatmentMachine)
+        {
+            return true;
+        }
+
+        public override bool Visit(SimpleTreatmentMachine treatmentMachine)
+        {
+            return false;
+        }
+
         public override bool Visit(GeneralPractitioner doctor)
         {
             return true;
@@ -157,6 +240,28 @@ namespace LazarusHospital.UnitTests
         public override bool Visit(GeneralPractitioner doctor)
         {
             return true;
+        }
+
+        public override bool Visit(AdvancedTreatmentMachine treatmentMachine)
+        {
+            switch (Topology)
+            {
+                 case Topology.Head:
+                 case Topology.Neck:
+                    return true;
+                 default:
+                    return false;
+            }
+        }
+
+        public override bool Visit(SimpleTreatmentMachine treatmentMachine)
+        {
+            return Topology == Topology.Breast;
+        }
+
+        public override bool Visit(NullTreatmentMachine treatmentMachine)
+        {
+            return false;
         }
     }
 
