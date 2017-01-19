@@ -9,7 +9,18 @@ namespace LazarusHospital.UnitTests
         public Patient(string name, Condition condition)
             : base(name)
         {
-            
+            Condition = condition;
         }
+
+        public bool Accept(IPatientVisitor visitor)
+        {
+            return Condition.Accept(visitor);
+        }
+    }
+
+    public interface IPatientVisitor
+    {
+        bool Visit(Flu flu);
+        bool Visit(Cancer flu);
     }
 }

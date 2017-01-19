@@ -10,5 +10,7 @@ namespace LazarusHospital.UnitTests.Conditions
         public abstract bool Visit(AdvancedTreatmentMachine treatmentMachine);
         public abstract bool Visit(SimpleTreatmentMachine treatmentMachine);
         public abstract bool Visit(NullTreatmentMachine treatmentMachine);
+
+        public abstract bool Accept(IPatientVisitor visitor);
     }
 }

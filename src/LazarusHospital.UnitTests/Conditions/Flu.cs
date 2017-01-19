@@ -29,5 +29,10 @@ namespace LazarusHospital.UnitTests.Conditions
         {
             return false;
         }
+
+        public override bool Accept(IPatientVisitor visitor)
+        {
+            return visitor.Visit(this);
+        }
     }
 }

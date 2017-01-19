@@ -4,7 +4,7 @@ namespace LazarusHospital.UnitTests
     {
         public string Name { get; private set; }
 
-        public Resource(string name)
+        protected Resource(string name)
         {
             Name = name;
         }

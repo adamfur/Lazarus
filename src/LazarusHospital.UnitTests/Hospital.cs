@@ -1,5 +1,9 @@
 using System;
 using System.Collections.Generic;
+using LazarusHospital.UnitTests.Employee;
+using LazarusHospital.UnitTests.Employee.Roles;
+using LazarusHospital.UnitTests.TreatmentRooms;
+using LazarusHospital.UnitTests.TreatmentRooms.Machines;
 
 namespace LazarusHospital.UnitTests
 {
