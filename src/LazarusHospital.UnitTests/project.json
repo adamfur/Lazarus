@@ -4,9 +4,12 @@
     "debugType": "portable"
   },
   "dependencies": {
-        "LazarusHospital": "1.0.0-*",
-        "xunit": "2.2.0-beta5-build3474"
+    "System.Runtime.Serialization.Primitives": "4.1.1",
+    "LazarusHospital": "1.0.0-*",
+    "xunit": "2.1.0",
+    "dotnet-test-xunit": "1.0.0-rc2-192208-24"
   },
+  "testRunner": "xunit",
   "frameworks": {
     "netcoreapp1.0": {
       "dependencies": {
@@ -15,7 +18,10 @@
           "version": "1.0.1"
         }
       },
-      "imports": "dnxcore50"
+      "imports": [
+        "dotnet5.4",
+        "portable-net451+win8"
+      ]
     }
   }
 }

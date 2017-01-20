@@ -9,45 +9,64 @@ namespace LazarusHospital
 {
     public class Hospital
     {
-        private List<TreatmentRoom> _treatmentRooms = new List<TreatmentRoom>();
-        private List<Doctor> _doctors = new List<Doctor>();
-        private List<Patient> _registeredPatients = new List<Patient>();
-        private List<ConsultationRecord> _records = new List<ConsultationRecord>();
+        private IList<TreatmentRoom> _treatmentRooms = new List<TreatmentRoom>();
+        private IList<Doctor> _doctors = new List<Doctor>();
+        private IList<Patient> _registeredPatients = new List<Patient>();
+        private IList<ConsultationRecord> _records = new List<ConsultationRecord>();
+        private ISet<string> _registeredNames = new HashSet<string>();
+        private Scheduler _scheduler;
 
-        public Hospital()
+        public Hospital(Scheduler scheduler)
         {
+            _scheduler = scheduler;
             AddDoctor(new Doctor("John", new Role[] { new Oncologist() }));
             AddDoctor(new Doctor("Anna", new Role[] { new GeneralPractitioner() } ));
             AddDoctor(new Doctor("Peter", new Role[] { new Oncologist(), new GeneralPractitioner() } ));
-            AddRoom(new TreatmentRoom("One", new AdvancedTreatmentMachine("Elekta")));
-            AddRoom(new TreatmentRoom("Two", new AdvancedTreatmentMachine("Varian")));
-            AddRoom(new TreatmentRoom("Three", new SimpleTreatmentMachine("MM50")));
-            AddRoom(new TreatmentRoom("Four", new NullTreatmentMachine()));
-            AddRoom(new TreatmentRoom("Five", new NullTreatmentMachine()));
+            AddTreatmentRoom(new TreatmentRoom("One", new AdvancedTreatmentMachine("Elekta")));
+            AddTreatmentRoom(new TreatmentRoom("Two", new AdvancedTreatmentMachine("Varian")));
+            AddTreatmentRoom(new TreatmentRoom("Three", new SimpleTreatmentMachine("MM50")));
+            AddTreatmentRoom(new TreatmentRoom("Four", new NullTreatmentMachine()));
+            AddTreatmentRoom(new TreatmentRoom("Five", new NullTreatmentMachine()));
         }
 
         private void AddDoctor(Doctor doctor)
         {
+            AddName(doctor);
             _doctors.Add(doctor);
         }
 
-        private void AddRoom(TreatmentRoom treatmentRoom)
+        private void AddTreatmentRoom(TreatmentRoom treatmentRoom)
         {
+            AddName(treatmentRoom);
             _treatmentRooms.Add(treatmentRoom);
         }
 
         public void RegisterPatient(Patient patient)
         {
+            AddName(patient);
+            _scheduler.BookConsultation(patient, _doctors, _treatmentRooms);
+            _registeredPatients.Add(patient);
+        }
+
+        public void AddName(Resource resource)
+        {
+            var name = resource.Name;
+
+            if (_registeredNames.Contains(name))
+            {
+                throw new Exception($"Name: {name} has already been used!");
+            }
+            _registeredNames.Add(name);
         }
 
         public IEnumerable<Patient> ListRegisteredPatients()
         {
-            throw new NotImplementedException();
+            return _registeredPatients;
         }
 
         public IEnumerable<ConsultationRecord> ListScheduledConsultations()
         {
-            throw new NotImplementedException();
+            return _scheduler.ListScheduledConsultations();
         }
     }
 }

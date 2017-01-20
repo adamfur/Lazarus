@@ -16,14 +16,7 @@ namespace LazarusHospital.TreatmentRooms.Machines
 
         public override bool CanTreatCondition(Cancer condition)
         {
-            switch (condition.Topology)
-            {
-                case Topology.Head:
-                case Topology.Neck:
-                    return true;
-                default:
-                    return false;
-            }
+            return true;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace LazarusHospital.UnitTests
         }
 
         [Fact]
-        public void Advanced_Treatment_Room_can_not_treat_patient_with_breast_cancer()
+        public void Advanced_Treatment_Room_can_treat_patient_with_breast_cancer()
         {
             var result = _patientWithCancerBreast.CanBeTreatedBy(_advancedTreatmentRoom);
 
