@@ -3,9 +3,10 @@ using LazarusHospital.UnitTests.TreatmentRooms.Machines;
 
 namespace LazarusHospital.UnitTests.TreatmentRooms
 {
-    public class TreatmentRoom : Resource, ICanTreat
+    public class TreatmentRoom : Resource, ICanTreat, IConditionVisistor
     {
         private TreatmentMachine TreatmentMachine { get; set; }
+
         public TreatmentRoom(string name, TreatmentMachine treatmentMachine)
             : base(name)
         {

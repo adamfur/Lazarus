@@ -3,14 +3,19 @@ using LazarusHospital.UnitTests.TreatmentRooms.Machines;
 
 namespace LazarusHospital.UnitTests.Conditions
 {
-    public abstract class Condition
+    public interface ICondition
     {
-        public abstract bool Visit(Oncologist doctor);
-        public abstract bool Visit(GeneralPractitioner doctor);
-        public abstract bool Visit(AdvancedTreatmentMachine treatmentMachine);
-        public abstract bool Visit(SimpleTreatmentMachine treatmentMachine);
-        public abstract bool Visit(NullTreatmentMachine treatmentMachine);
+        void Accept(IConditionVisistor visitor);
+    }
 
-        public abstract bool Accept(IPatientVisitor visitor);
+    public interface IConditionVisistor
+    {
+        void Visit(Flu condition);
+        void Visit(Cancer condition);
+    }
+
+    public abstract class Condition : ICondition
+    {
+        public abstract void Accept(IConditionVisistor visitor);        
     }
 }

@@ -4,7 +4,7 @@ using LazarusHospital.UnitTests.Interfaces;
 
 namespace LazarusHospital.UnitTests.Employee
 {
-    public class Doctor : Resource, ICanTreat
+    public class Doctor : Resource, ICanTreat, IConditionVisistor
     {
         private Role[] Roles { get; set; }
 
