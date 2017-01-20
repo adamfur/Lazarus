@@ -1,4 +1,5 @@
 using System.Linq;
+using LazarusHospital.UnitTests.Conditions;
 using LazarusHospital.UnitTests.Employee.Roles;
 using LazarusHospital.UnitTests.Interfaces;
 
@@ -17,6 +18,16 @@ namespace LazarusHospital.UnitTests.Employee
         public bool CanTreat(Patient patient)
         {
             return Roles.Any(r => r.CanTreat(patient));
+        }
+
+        public void Visit(Flu condition)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Visit(Cancer condition)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

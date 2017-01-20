@@ -1,4 +1,4 @@
-namespace LazarusHospital.UnitTests
+namespace LazarusHospital.UnitTests.Interfaces
 {
     public interface IBookable
     {

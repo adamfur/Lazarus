@@ -9,7 +9,8 @@ namespace LazarusHospital.UnitTests.TreatmentRooms.Machines
 
         public override bool CanTreat(Patient patient)
         {
-            return patient.Condition.Visit(this);
+            return true;
+            //return patient.Condition.Visit(this);
         }
     }
 }

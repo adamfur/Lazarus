@@ -1,4 +1,6 @@
 using LazarusHospital.UnitTests.Conditions;
+using LazarusHospital.UnitTests.Employee.Roles;
+using LazarusHospital.UnitTests.Interfaces;
 
 namespace LazarusHospital.UnitTests
 {
@@ -12,15 +14,9 @@ namespace LazarusHospital.UnitTests
             Condition = condition;
         }
 
-        public bool Accept(IPatientVisitor visitor)
+        public void Accept(IConditionVisistor visitor)
         {
-            return Condition.Accept(visitor);
+            Condition.Accept(visitor);
         }
-    }
-
-    public interface IPatientVisitor
-    {
-        bool Visit(Flu flu);
-        bool Visit(Cancer flu);
     }
 }

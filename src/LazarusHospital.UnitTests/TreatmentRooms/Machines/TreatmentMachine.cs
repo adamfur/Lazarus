@@ -1,3 +1,4 @@
+using LazarusHospital.UnitTests.Conditions;
 using LazarusHospital.UnitTests.Interfaces;
 
 namespace LazarusHospital.UnitTests.TreatmentRooms.Machines
@@ -10,5 +11,15 @@ namespace LazarusHospital.UnitTests.TreatmentRooms.Machines
         }
 
         public abstract bool CanTreat(Patient patient);
+
+        public void Visit(Flu condition)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Visit(Cancer condition)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

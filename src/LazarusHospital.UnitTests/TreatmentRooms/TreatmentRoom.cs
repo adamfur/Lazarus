@@ -1,3 +1,4 @@
+using LazarusHospital.UnitTests.Conditions;
 using LazarusHospital.UnitTests.Interfaces;
 using LazarusHospital.UnitTests.TreatmentRooms.Machines;
 
@@ -16,6 +17,16 @@ namespace LazarusHospital.UnitTests.TreatmentRooms
         public bool CanTreat(Patient patient)
         {
             return TreatmentMachine.CanTreat(patient);
+        }
+
+        public void Visit(Flu condition)
+        {
+            TreatmentMachine.Visit(condition);
+        }
+
+        public void Visit(Cancer condition)
+        {
+            TreatmentMachine.Visit(condition);
         }
     }
 }

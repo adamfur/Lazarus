@@ -1,21 +1,21 @@
+using System;
 using LazarusHospital.UnitTests.Employee.Roles;
-using LazarusHospital.UnitTests.TreatmentRooms.Machines;
+using LazarusHospital.UnitTests.Interfaces;
 
 namespace LazarusHospital.UnitTests.Conditions
 {
-    public interface ICondition
-    {
-        void Accept(IConditionVisistor visitor);
-    }
-
-    public interface IConditionVisistor
-    {
-        void Visit(Flu condition);
-        void Visit(Cancer condition);
-    }
-
     public abstract class Condition : ICondition
     {
-        public abstract void Accept(IConditionVisistor visitor);        
+        public abstract void Accept(IConditionVisistor visitor);
+
+        internal bool Accept(IPatientVisitor visitor)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal bool Accept(GeneralPractitioner visitor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
