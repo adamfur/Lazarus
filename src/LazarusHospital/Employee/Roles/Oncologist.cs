@@ -1,6 +1,6 @@
-using LazarusHospital.UnitTests.Conditions;
+using LazarusHospital.Conditions;
 
-namespace LazarusHospital.UnitTests.Employee.Roles
+namespace LazarusHospital.Employee.Roles
 {
     public class Oncologist : Role
     {

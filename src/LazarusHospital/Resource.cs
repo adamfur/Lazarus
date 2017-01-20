@@ -1,4 +1,4 @@
-namespace LazarusHospital.UnitTests
+namespace LazarusHospital
 {
     public abstract class Resource
     {

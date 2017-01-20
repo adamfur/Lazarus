@@ -1,4 +1,4 @@
-namespace LazarusHospital.UnitTests.Interfaces
+namespace LazarusHospital.Interfaces
 {
     public interface ICondition
     {

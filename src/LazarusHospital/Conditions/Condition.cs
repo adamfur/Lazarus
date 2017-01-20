@@ -1,7 +1,6 @@
-using LazarusHospital.UnitTests.Employee.Roles;
-using LazarusHospital.UnitTests.Interfaces;
+using LazarusHospital.Interfaces;
 
-namespace LazarusHospital.UnitTests.Conditions
+namespace LazarusHospital.Conditions
 {
     public abstract class Condition : ICondition
     {

@@ -1,9 +1,7 @@
-using System;
-using LazarusHospital.UnitTests.Conditions;
-using LazarusHospital.UnitTests.Employee.Roles;
-using LazarusHospital.UnitTests.Interfaces;
+using LazarusHospital.Conditions;
+using LazarusHospital.Interfaces;
 
-namespace LazarusHospital.UnitTests
+namespace LazarusHospital
 {
     public class Patient : Resource, ICondition
     {

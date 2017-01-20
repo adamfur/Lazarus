@@ -1,6 +1,6 @@
-using LazarusHospital.UnitTests.Conditions;
+using LazarusHospital.Conditions;
 
-namespace LazarusHospital.UnitTests.Interfaces
+namespace LazarusHospital.Interfaces
 {
     public interface IConditionVisistor
     {

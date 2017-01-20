@@ -1,6 +1,6 @@
 using System;
 
-namespace LazarusHospital.UnitTests
+namespace LazarusHospital
 {
     public class SystemTime
     {
@@ -10,7 +10,7 @@ namespace LazarusHospital.UnitTests
 
     public class SystemTimeMock : SystemTime
     {
-        public static SetTimeDelegate(Func<DateTime> method)
+        public static void SetTimeDelegate(Func<DateTime> method)
         {
             Delegate = method;
         }

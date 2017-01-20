@@ -1,7 +1,7 @@
-using LazarusHospital.UnitTests.Conditions;
-using LazarusHospital.UnitTests.Interfaces;
+using LazarusHospital.Conditions;
+using LazarusHospital.Interfaces;
 
-namespace LazarusHospital.UnitTests.Employee.Roles
+namespace LazarusHospital.Employee.Roles
 {
     public abstract class Role : IConditionVisistor
     {

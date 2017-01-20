@@ -1,4 +1,4 @@
-namespace LazarusHospital.UnitTests
+namespace LazarusHospital
 {
     public class Scheduler
     {

@@ -1,8 +1,8 @@
 using System;
-using LazarusHospital.UnitTests.Employee;
-using LazarusHospital.UnitTests.TreatmentRooms;
+using LazarusHospital.Employee;
+using LazarusHospital.TreatmentRooms;
 
-namespace LazarusHospital.UnitTests
+namespace LazarusHospital
 {
     public class ConsultationRecord
     {

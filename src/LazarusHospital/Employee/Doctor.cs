@@ -1,9 +1,9 @@
 using System.Linq;
-using LazarusHospital.UnitTests.Conditions;
-using LazarusHospital.UnitTests.Employee.Roles;
-using LazarusHospital.UnitTests.Interfaces;
+using LazarusHospital.Conditions;
+using LazarusHospital.Employee.Roles;
+using LazarusHospital.Interfaces;
 
-namespace LazarusHospital.UnitTests.Employee
+namespace LazarusHospital.Employee
 {
     public class Doctor : Resource, IConditionVisistor
     {

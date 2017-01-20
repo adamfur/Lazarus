@@ -1,8 +1,8 @@
-using LazarusHospital.UnitTests.Conditions;
-using LazarusHospital.UnitTests.Interfaces;
-using LazarusHospital.UnitTests.TreatmentRooms.Machines;
+using LazarusHospital.Conditions;
+using LazarusHospital.Interfaces;
+using LazarusHospital.TreatmentRooms.Machines;
 
-namespace LazarusHospital.UnitTests.TreatmentRooms
+namespace LazarusHospital.TreatmentRooms
 {
     public class TreatmentRoom : Resource, IConditionVisistor
     {

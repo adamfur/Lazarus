@@ -1,7 +1,6 @@
-using System;
-using LazarusHospital.UnitTests.Conditions;
+using LazarusHospital.Conditions;
 
-namespace LazarusHospital.UnitTests.TreatmentRooms.Machines
+namespace LazarusHospital.TreatmentRooms.Machines
 {
     public class SimpleTreatmentMachine : TreatmentMachine
     {

@@ -1,4 +1,4 @@
-namespace LazarusHospital.UnitTests.Conditions
+namespace LazarusHospital.Conditions
 {
     public enum Topology
     {

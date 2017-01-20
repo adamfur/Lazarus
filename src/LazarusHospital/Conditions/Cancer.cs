@@ -1,8 +1,6 @@
-using LazarusHospital.UnitTests.Employee.Roles;
-using LazarusHospital.UnitTests.Interfaces;
-using LazarusHospital.UnitTests.TreatmentRooms.Machines;
+using LazarusHospital.Interfaces;
 
-namespace LazarusHospital.UnitTests.Conditions
+namespace LazarusHospital.Conditions
 {
     public class Cancer : Condition
     {
