@@ -32,7 +32,7 @@ namespace LazarusHospital
                         {
                             Console.Write("Patient name: ");
                             name = Console.ReadLine();
-                        } while (name == null);
+                        } while (string.IsNullOrWhiteSpace(name));
 
                         do
                         {
@@ -86,6 +86,9 @@ namespace LazarusHospital
                         break;
 
                 }
+
+                Console.WriteLine();
+                Console.WriteLine();
             }
         }
     }
