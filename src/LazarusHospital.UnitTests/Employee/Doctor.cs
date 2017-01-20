@@ -5,7 +5,7 @@ using LazarusHospital.UnitTests.Interfaces;
 
 namespace LazarusHospital.UnitTests.Employee
 {
-    public class Doctor : Resource, ICanTreat, IConditionVisistor
+    public class Doctor : Resource, IConditionVisistor
     {
         private Role[] Roles { get; set; }
 
@@ -15,19 +15,14 @@ namespace LazarusHospital.UnitTests.Employee
             Roles = roles;
         }
 
-        public bool CanTreat(Patient patient)
+        public bool Visit(Flu condition)
         {
-            return Roles.Any(r => r.CanTreat(patient));
+            return Roles.Any(r => r.Visit(condition));
         }
 
-        public void Visit(Flu condition)
+        public bool Visit(Cancer condition)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void Visit(Cancer condition)
-        {
-            throw new System.NotImplementedException();
+            return Roles.Any(r => r.Visit(condition));
         }
     }
 }

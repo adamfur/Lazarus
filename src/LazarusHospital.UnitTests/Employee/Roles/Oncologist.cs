@@ -4,18 +4,14 @@ namespace LazarusHospital.UnitTests.Employee.Roles
 {
     public class Oncologist : Role
     {
-        public override bool CanTreat(Patient patient)
+        public override bool Visit(Flu condition)
         {
-            //return patient.Condition.Visit(this);
+            return false;
+        }
+
+        public override bool Visit(Cancer condition)
+        {
             return true;
-        }
-
-        public override void Visit(Flu condition)
-        {
-        }
-
-        public override void Visit(Cancer condition)
-        {
         }
     }
 }

@@ -1,3 +1,6 @@
+using System;
+using LazarusHospital.UnitTests.Conditions;
+
 namespace LazarusHospital.UnitTests.TreatmentRooms.Machines
 {
     public class SimpleTreatmentMachine : TreatmentMachine
@@ -7,10 +10,14 @@ namespace LazarusHospital.UnitTests.TreatmentRooms.Machines
         {
         }
 
-        public override bool CanTreat(Patient patient)
+        public override bool Visit(Flu condition)
         {
-            return true;
-            //return patient.Condition.Visit(this);
+            return false;
+        }
+
+        public override bool Visit(Cancer condition)
+        {
+            return condition.Topology == Topology.Breast;
         }
     }
 }

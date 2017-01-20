@@ -4,7 +4,7 @@ using LazarusHospital.UnitTests.TreatmentRooms.Machines;
 
 namespace LazarusHospital.UnitTests.TreatmentRooms
 {
-    public class TreatmentRoom : Resource, ICanTreat, IConditionVisistor
+    public class TreatmentRoom : Resource, IConditionVisistor
     {
         private TreatmentMachine TreatmentMachine { get; set; }
 
@@ -13,20 +13,15 @@ namespace LazarusHospital.UnitTests.TreatmentRooms
         {
             TreatmentMachine = treatmentMachine;
         }
-
-        public bool CanTreat(Patient patient)
+        
+        public bool Visit(Flu condition)
         {
-            return TreatmentMachine.CanTreat(patient);
+            return TreatmentMachine.Visit(condition);
         }
 
-        public void Visit(Flu condition)
+        public bool Visit(Cancer condition)
         {
-            TreatmentMachine.Visit(condition);
-        }
-
-        public void Visit(Cancer condition)
-        {
-            TreatmentMachine.Visit(condition);
+            return TreatmentMachine.Visit(condition);
         }
     }
 }
