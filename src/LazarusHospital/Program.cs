@@ -11,12 +11,14 @@ namespace LazarusHospital
 
             Console.WriteLine("Welcome to the Lazarus Hospital user interface!");
             Console.WriteLine();
-            Console.WriteLine("1) Patient registration");
-            Console.WriteLine("2) Get the list of registered patients");
-            Console.WriteLine("3) Get the list of scheduled consultations");
 
             while (true)
             {
+                Console.WriteLine("Menu:");
+                Console.WriteLine("1) Patient registration");
+                Console.WriteLine("2) Get the list of registered patients");
+                Console.WriteLine("3) Get the list of scheduled consultations");
+
                 var input = Console.ReadLine();
                 var index = 1;
 
@@ -76,7 +78,7 @@ namespace LazarusHospital
                         Console.WriteLine("Printing all consultation records!");
                         foreach (var record in hospital.ListScheduledConsultations())
                         {
-                            Console.WriteLine($"{index++}: Patient: {record.Patient.Name}, Doctor: {record.Doctor.Name}, Treatment Room: {record.TreatmentRoom.Name}, Registration Date: {record.RegistrationDate:yyyy-MM-dd}, Consolutation Date: {record.ConsolutationDate:yyyy-MM-dd}");
+                            Console.WriteLine($"{index++}: Patient: {record.Patient}, Doctor: {record.Doctor.Name}, Treatment Room: {record.TreatmentRoom.Name}, Registration Date: {record.RegistrationDate:yyyy-MM-dd}, Consolutation Date: {record.ConsolutationDate:yyyy-MM-dd}");
                         }
                         break;
                     default:

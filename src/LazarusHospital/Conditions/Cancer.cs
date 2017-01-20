@@ -14,5 +14,10 @@ namespace LazarusHospital.Conditions
         {
             return visitor.CanTreatCondition(this);
         }
+
+        public override string ToString()
+        {
+            return $"Cancer: {Topology}";
+        }        
     }
 }

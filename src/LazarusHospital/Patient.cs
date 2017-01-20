@@ -17,5 +17,10 @@ namespace LazarusHospital
         {
             return Condition.CanBeTreatedBy(visitor);
         }
+
+        public override string ToString()
+        {
+            return $"{Name} ({Condition})";
+        }
     }
 }
