@@ -15,14 +15,24 @@ namespace LazarusHospital
             return _records;
         }
 
-        public void BookConsultation(Patient patient, IList<Doctor> doctors, IList<TreatmentRoom> treatmentRooms)
+        public ConsultationRecord ScheduleConsultation(Patient patient, IList<Doctor> doctors, IList<TreatmentRoom> treatmentRooms)
         {
             var tomorrow = SystemTime.Now.Date.AddDays(1);
 
-            for (var day = tomorrow; ; day = day.AddDays(1))
+            for (var date = tomorrow; ; date = date.AddDays(1))
             {
-                var availableDoctors = doctors.FirstOrDefault(d => patient.CanBeTreatedBy(d) && _records.Any(r => r.));
-                //var availableRooms;
+                var availableDoctor = doctors.FirstOrDefault(d => patient.CanBeTreatedBy(d) && !_records.Any(r => r.Doctor == d && r.ConsolutationDate == date));
+                var availableTreatmentRoom = treatmentRooms.FirstOrDefault(t => patient.CanBeTreatedBy(t) && !_records.Any(r => r.TreatmentRoom == t && r.ConsolutationDate == date));
+
+                if (availableDoctor == null || availableTreatmentRoom == null)
+                {
+                    continue;
+                }
+
+                var record = new ConsultationRecord(patient, availableDoctor, availableTreatmentRoom, SystemTime.Now, date);
+
+                _records.Add(record);
+                return record;
             }
         }
     }

@@ -41,11 +41,12 @@ namespace LazarusHospital
             _treatmentRooms.Add(treatmentRoom);
         }
 
-        public void RegisterPatient(Patient patient)
+        public ConsultationRecord RegisterPatient(Patient patient)
         {
             AddName(patient);
-            _scheduler.BookConsultation(patient, _doctors, _treatmentRooms);
+            var appointment = _scheduler.ScheduleConsultation(patient, _doctors, _treatmentRooms);
             _registeredPatients.Add(patient);
+            return appointment;
         }
 
         public void AddName(Resource resource)
