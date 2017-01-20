@@ -10,7 +10,7 @@ namespace LazarusHospital.UnitTests.TreatmentRooms.Machines
         {
         }
 
-        public abstract bool Visit(Cancer condition);
-        public abstract bool Visit(Flu condition);
+        public abstract bool CanTreatCondition(Cancer condition);
+        public abstract bool CanTreatCondition(Flu condition);
     }
 }

@@ -15,9 +15,9 @@ namespace LazarusHospital.UnitTests
             Condition = condition;
         }
 
-        public bool Accept(IConditionVisistor visitor)
+        public bool CanBeTreatedBy(IConditionVisistor visitor)
         {
-            return Condition.Accept(visitor);
+            return Condition.CanBeTreatedBy(visitor);
         }
     }
 }

@@ -6,9 +6,9 @@ namespace LazarusHospital.UnitTests.Conditions
 {
     public class Flu : Condition
     {
-        public override bool Accept(IConditionVisistor visitor)
+        public override bool CanBeTreatedBy(IConditionVisistor visitor)
         {
-            return visitor.Visit(this);
+            return visitor.CanTreatCondition(this);
         }
     }
 }

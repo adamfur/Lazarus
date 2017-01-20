@@ -12,26 +12,9 @@ namespace LazarusHospital.UnitTests.Conditions
             Topology = topology;
         }
 
-        //public override bool Visit(AdvancedTreatmentMachine treatmentMachine)
-        //{
-        //    switch (Topology)
-        //    {
-        //        case Topology.Head:
-        //        case Topology.Neck:
-        //            return true;
-        //        default:
-        //            return false;
-        //    }
-        //}
-
-        //public override bool Visit(SimpleTreatmentMachine treatmentMachine)
-        //{
-        //    return Topology == Topology.Breast;
-        //}
-
-        public override bool Accept(IConditionVisistor visitor)
+        public override bool CanBeTreatedBy(IConditionVisistor visitor)
         {
-            return visitor.Visit(this);
+            return visitor.CanTreatCondition(this);
         }
     }
 }

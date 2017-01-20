@@ -4,7 +4,7 @@ namespace LazarusHospital.UnitTests.Interfaces
 {
     public interface IConditionVisistor
     {
-        bool Visit(Flu condition);
-        bool Visit(Cancer condition);
+        bool CanTreatCondition(Flu condition);
+        bool CanTreatCondition(Cancer condition);
     }
 }

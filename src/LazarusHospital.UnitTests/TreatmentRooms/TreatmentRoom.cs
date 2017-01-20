@@ -14,14 +14,14 @@ namespace LazarusHospital.UnitTests.TreatmentRooms
             TreatmentMachine = treatmentMachine;
         }
         
-        public bool Visit(Flu condition)
+        public bool CanTreatCondition(Flu condition)
         {
-            return TreatmentMachine.Visit(condition);
+            return TreatmentMachine.CanTreatCondition(condition);
         }
 
-        public bool Visit(Cancer condition)
+        public bool CanTreatCondition(Cancer condition)
         {
-            return TreatmentMachine.Visit(condition);
+            return TreatmentMachine.CanTreatCondition(condition);
         }
     }
 }

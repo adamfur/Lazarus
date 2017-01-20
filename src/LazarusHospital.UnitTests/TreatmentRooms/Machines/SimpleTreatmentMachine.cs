@@ -10,12 +10,12 @@ namespace LazarusHospital.UnitTests.TreatmentRooms.Machines
         {
         }
 
-        public override bool Visit(Flu condition)
+        public override bool CanTreatCondition(Flu condition)
         {
             return false;
         }
 
-        public override bool Visit(Cancer condition)
+        public override bool CanTreatCondition(Cancer condition)
         {
             return condition.Topology == Topology.Breast;
         }

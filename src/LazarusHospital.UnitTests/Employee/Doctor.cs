@@ -15,14 +15,14 @@ namespace LazarusHospital.UnitTests.Employee
             Roles = roles;
         }
 
-        public bool Visit(Flu condition)
+        public bool CanTreatCondition(Flu condition)
         {
-            return Roles.Any(r => r.Visit(condition));
+            return Roles.Any(r => r.CanTreatCondition(condition));
         }
 
-        public bool Visit(Cancer condition)
+        public bool CanTreatCondition(Cancer condition)
         {
-            return Roles.Any(r => r.Visit(condition));
+            return Roles.Any(r => r.CanTreatCondition(condition));
         }
     }
 }

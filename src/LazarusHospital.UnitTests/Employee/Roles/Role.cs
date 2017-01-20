@@ -5,7 +5,7 @@ namespace LazarusHospital.UnitTests.Employee.Roles
 {
     public abstract class Role : IConditionVisistor
     {
-        public abstract bool Visit(Flu condition);
-        public abstract bool Visit(Cancer condition);
+        public abstract bool CanTreatCondition(Flu condition);
+        public abstract bool CanTreatCondition(Cancer condition);
     }
 }
