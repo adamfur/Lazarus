@@ -3,6 +3,7 @@ using Xunit;
 
 namespace LazarusHospital
 {
+    [Collection("MockTime")]
     public class SystemTimeTests
     {
         [Fact]

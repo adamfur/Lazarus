@@ -6,8 +6,8 @@
   "dependencies": {
     "System.Runtime.Serialization.Primitives": "4.1.1",
     "LazarusHospital": "1.0.0-*",
-    "xunit": "2.1.0",
-    "dotnet-test-xunit": "1.0.0-rc2-192208-24",
+    "xunit": "2.2.0-beta5-build3474",
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
     "NSubstitute": "2.0.1-rc"
   },
   "testRunner": "xunit",

@@ -4,6 +4,7 @@ using Xunit;
 
 namespace LazarusHospital.UnitTests
 {
+    [Collection("MockTime")]
     public class BookingTests
     {
         private Patient _patientWithCancerHead;
@@ -25,7 +26,6 @@ namespace LazarusHospital.UnitTests
         }
 
         [Fact]
-        [Collection("MockTIme")]
         public void Book_a_consultation_is_not_assigned_to_the_same_day()
         {
             // Arrange
