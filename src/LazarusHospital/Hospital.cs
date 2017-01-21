@@ -14,9 +14,9 @@ namespace LazarusHospital
         private IList<Patient> _registeredPatients = new List<Patient>();
         private IList<ConsultationRecord> _records = new List<ConsultationRecord>();
         private ISet<string> _registeredNames = new HashSet<string>();
-        private Scheduler _scheduler;
+        private IScheduler _scheduler;
 
-        public Hospital(Scheduler scheduler)
+        public Hospital(IScheduler scheduler)
         {
             _scheduler = scheduler;
         }
@@ -33,13 +33,13 @@ namespace LazarusHospital
             AddTreatmentRoom(new TreatmentRoom("Five", new NullTreatmentMachine()));
         }
 
-        private void AddDoctor(Doctor doctor)
+        public void AddDoctor(Doctor doctor)
         {
             AddName(doctor);
             _doctors.Add(doctor);
         }
 
-        private void AddTreatmentRoom(TreatmentRoom treatmentRoom)
+        public void AddTreatmentRoom(TreatmentRoom treatmentRoom)
         {
             AddName(treatmentRoom);
             _treatmentRooms.Add(treatmentRoom);
@@ -53,7 +53,7 @@ namespace LazarusHospital
             return appointment;
         }
 
-        public void AddName(Resource resource)
+        private void AddName(Resource resource)
         {
             var name = resource.Name;
 

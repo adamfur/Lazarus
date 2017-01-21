@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LazarusHospital
 {
-    public class SystemTimeTests : SystemTime
+    public class SystemTimeTests
     {
         [Fact]
         public void Now_is_injectable()
@@ -11,7 +11,7 @@ namespace LazarusHospital
             // Arrange
             var timestamp = new DateTime(2000, 1, 2, 3, 4, 5);
             
-            SystemTimeMock.Delegate = () => timestamp;
+            SystemTimeMock.SetTimeDelegate(() => timestamp);
 
             // Act
             var result = SystemTime.Now;

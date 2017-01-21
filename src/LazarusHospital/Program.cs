@@ -10,8 +10,7 @@ namespace LazarusHospital
             var hospital = new Hospital(new Scheduler());
 
             hospital.LoadHospitalDefaultResources();
-            Console.WriteLine("Welcome to the Lazarus Hospital user interface!");
-            Console.WriteLine();
+            PrintWelcome();
 
             while (true)
             {
@@ -24,9 +23,16 @@ namespace LazarusHospital
                         string name = ReadName();
                         Condition condition = ReadCondition();
 
-                        var consultationRecord = hospital.RegisterPatient(new Patient(name, condition));
+                        try
+                        {
+                            var consultationRecord = hospital.RegisterPatient(new Patient(name, condition));
 
-                        Console.WriteLine("Done!");
+                            Console.WriteLine("Done!");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error: {ex.Message}");
+                        }
                         break;
                     case "2":
                         PrintAllPatientRecords(hospital);
@@ -43,6 +49,12 @@ namespace LazarusHospital
                 Console.WriteLine();
                 Console.WriteLine();
             }
+        }
+
+        private static void PrintWelcome()
+        {
+            Console.WriteLine("Welcome to the Lazarus Hospital user interface!");
+            Console.WriteLine();
         }
 
         private static int PrintAllConsultationRecords(Hospital hospital)

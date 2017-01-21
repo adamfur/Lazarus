@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using LazarusHospital.Employee;
@@ -6,7 +5,7 @@ using LazarusHospital.TreatmentRooms;
 
 namespace LazarusHospital
 {
-    public class Scheduler
+    public class Scheduler : IScheduler
     {
         private IList<ConsultationRecord> _records = new List<ConsultationRecord>();
 
