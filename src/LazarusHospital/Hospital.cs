@@ -19,9 +19,13 @@ namespace LazarusHospital
         public Hospital(Scheduler scheduler)
         {
             _scheduler = scheduler;
+        }
+
+        public void LoadHospitalDefaultResources()
+        {
             AddDoctor(new Doctor("John", new Role[] { new Oncologist() }));
-            AddDoctor(new Doctor("Anna", new Role[] { new GeneralPractitioner() } ));
-            AddDoctor(new Doctor("Peter", new Role[] { new Oncologist(), new GeneralPractitioner() } ));
+            AddDoctor(new Doctor("Anna", new Role[] { new GeneralPractitioner() }));
+            AddDoctor(new Doctor("Peter", new Role[] { new Oncologist(), new GeneralPractitioner() }));
             AddTreatmentRoom(new TreatmentRoom("One", new AdvancedTreatmentMachine("Elekta")));
             AddTreatmentRoom(new TreatmentRoom("Two", new AdvancedTreatmentMachine("Varian")));
             AddTreatmentRoom(new TreatmentRoom("Three", new SimpleTreatmentMachine("MM50")));

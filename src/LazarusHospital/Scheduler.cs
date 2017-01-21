@@ -17,6 +17,7 @@ namespace LazarusHospital
 
         public ConsultationRecord ScheduleConsultation(Patient patient, IList<Doctor> doctors, IList<TreatmentRoom> treatmentRooms)
         {
+            VerifyThatResourcesExist(patient, doctors, treatmentRooms);
             var tomorrow = SystemTime.Now.Date.AddDays(1);
 
             for (var date = tomorrow; ; date = date.AddDays(1))
@@ -33,6 +34,14 @@ namespace LazarusHospital
 
                 _records.Add(record);
                 return record;
+            }
+        }
+
+        private void VerifyThatResourcesExist(Patient patient, IList<Doctor> doctors, IList<TreatmentRoom> treatmentRooms)
+        {
+            if (!doctors.Any(d => patient.CanBeTreatedBy(d)) || !treatmentRooms.Any(t => patient.CanBeTreatedBy(t)))
+            {
+                throw new NoTreatmentResourcesForPatientException($"No missing treatment resources for {patient}");
             }
         }
     }

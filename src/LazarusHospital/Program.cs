@@ -9,6 +9,7 @@ namespace LazarusHospital
         {
             var hospital = new Hospital(new Scheduler());
 
+            hospital.LoadHospitalDefaultResources();
             Console.WriteLine("Welcome to the Lazarus Hospital user interface!");
             Console.WriteLine();
 
