@@ -26,7 +26,7 @@ namespace LazarusHospital.UnitTests
         }
 
         [Fact]
-        public void Book_a_consultation_is_not_assigned_to_the_same_day()
+        public void Booking_a_consultation_is_not_assigned_to_the_same_day()
         {
             // Arrange
             var now = new DateTime(2000, 1, 1);
