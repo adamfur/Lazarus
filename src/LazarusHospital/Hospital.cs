@@ -47,8 +47,8 @@ namespace LazarusHospital
 
         public ConsultationRecord RegisterPatient(Patient patient)
         {
-            AddName(patient);
             var appointment = _scheduler.ScheduleConsultation(patient, _doctors, _treatmentRooms);
+            AddName(patient);
             _registeredPatients.Add(patient);
             return appointment;
         }
