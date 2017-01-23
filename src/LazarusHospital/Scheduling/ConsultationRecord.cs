@@ -20,5 +20,10 @@ namespace LazarusHospital
             RegistrationDate = registrationDate;
             ConsolutationDate = consolutationDate;
         }
+
+        public override string ToString()
+        {
+            return $"Patient: {Patient}, Doctor: {Doctor.Name}, Treatment Room: {TreatmentRoom.Name}, Registration Date: {RegistrationDate:yyyy-MM-dd}, Consolutation Date: {ConsolutationDate:yyyy-MM-dd}";
+        }
     }
 }

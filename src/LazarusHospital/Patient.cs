@@ -5,7 +5,7 @@ namespace LazarusHospital
 {
     public class Patient : Resource, ICondition
     {
-        public Condition Condition { get; private set; }
+        private Condition Condition { get; set; }
 
         public Patient(string name, Condition condition)
             : base(name)
